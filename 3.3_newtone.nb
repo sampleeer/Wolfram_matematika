@@ -1,0 +1,3066 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    113125,       3056]
+NotebookOptionsPosition[    112518,       3036]
+NotebookOutlinePosition[    112910,       3052]
+CellTagsIndexPosition[    112867,       3049]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"norma", "[", "vec_List", "]"}], ":=", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"vec", "[", " ", 
+       RowBox[{"[", "1", "]"}], " ", "]"}], "^", "2"}], "+", 
+     RowBox[{
+      RowBox[{"vec", "[", " ", 
+       RowBox[{"[", "2", "]"}], " ", "]"}], "^", "2"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"main", "[", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "x", ",", "y", ",", "f", ",", "g", ",", "X", ",", "F", ",", "W", ",", 
+       "Xnew"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{
+      "Print", "[", 
+       "\"\<\:0420\:0435\:0448\:0435\:043d\:0438\:0435 \:0441\:0438\:0441\
+\:0442\:0435\:043c \:043d\:0435\:043b\:0438\:043d\:0435\:0439\:043d\:044b\
+\:0445 \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0439 \:043c\:0435\
+\:0442\:043e\:0434\:043e\:043c \
+\:041d\:044c\:044e\:0442\:043e\:043d\:0430\>\"", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"f", "=", 
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"x", "-", "1"}], "]"}], "+", "y", "-", "1"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"g", "=", 
+       RowBox[{
+        RowBox[{"Exp", "[", "x", "]"}], "-", "y"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"X", "=", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"F", "=", 
+       RowBox[{"{", 
+        RowBox[{"f", ",", "g"}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"W", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"D", "[", 
+            RowBox[{"f", ",", "x"}], "]"}], ",", 
+           RowBox[{"D", "[", 
+            RowBox[{"f", ",", "y"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"D", "[", 
+            RowBox[{"g", ",", "x"}], "]"}], ",", 
+           RowBox[{"D", "[", 
+            RowBox[{"g", ",", "y"}], "]"}]}], "}"}]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Xnew", "=", 
+       RowBox[{
+        RowBox[{"X", "-", 
+         RowBox[{
+          RowBox[{"Inverse", "[", "W", "]"}], ".", "F"}]}], "/.", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"x", "->", 
+           RowBox[{"X", "[", " ", 
+            RowBox[{"[", "1", "]"}], " ", "]"}]}], ",", 
+          RowBox[{"y", "->", 
+           RowBox[{"X", "[", " ", 
+            RowBox[{"[", "2", "]"}], " ", "]"}]}]}], "}"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"norma", "[", 
+          RowBox[{"Xnew", "-", "X"}], "]"}], ">", "0.001"}], ",", 
+        RowBox[{
+         RowBox[{"X", "=", "Xnew"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Xnew", "=", 
+          RowBox[{
+           RowBox[{"X", "-", 
+            RowBox[{
+             RowBox[{"Inverse", "[", "W", "]"}], ".", "F"}]}], "/.", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"x", "->", 
+              RowBox[{"X", "[", " ", 
+               RowBox[{"[", "1", "]"}], " ", "]"}]}], ",", 
+             RowBox[{"y", "->", 
+              RowBox[{"X", "[", " ", 
+               RowBox[{"[", "2", "]"}], " ", "]"}]}]}], "}"}]}]}], ";"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<\:0420\:0435\:0448\:0435\:043d\:0438\:0435 \:0441\:0438\:0441\
+\:0442\:0435\:043c\:044b: x=\>\"", ",", 
+        RowBox[{"Xnew", "[", " ", 
+         RowBox[{"[", "1", "]"}], " ", "]"}], ",", "\"\<, y=\>\"", ",", 
+        RowBox[{"Xnew", "[", " ", 
+         RowBox[{"[", "2", "]"}], " ", "]"}]}], "]"}], ";"}]}], "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"main", "[", "]"}], "\n"}], "\n"}], "Input",
+ CellChangeTimes->{{3.912536204907609*^9, 3.912536266691799*^9}, {
+  3.912536527384377*^9, 3.912536631711447*^9}},
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"481b9a93-0b5e-4adb-a626-710fb36e137b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"\:0420\:0435\:0448\:0435\:043d\:0438\:0435 \:0441\:0438\
+\:0441\:0442\:0435\:043c \:043d\:0435\:043b\:0438\:043d\:0435\:0439\:043d\
+\:044b\:0445 \:0443\:0440\:0430\:0432\:043d\:0435\:043d\:0438\:0439 \:043c\
+\:0435\:0442\:043e\:0434\:043e\:043c \:041d\:044c\:044e\:0442\:043e\:043d\
+\:0430\"\>"], "Print",
+ CellChangeTimes->{
+  3.912536209733078*^9, 3.912536275848404*^9, 3.9125365292945223`*^9, 
+   3.9125365734091797`*^9, {3.9125366046382523`*^9, 3.912536634332996*^9}},
+ CellLabel->
+  "During evaluation of \
+In[105]:=",ExpressionUUID->"4a154984-3cb7-46e6-bed7-00e6b5ef0d7c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\:0420\:0435\:0448\:0435\:043d\:0438\:0435 \:0441\:0438\:0441\
+\:0442\:0435\:043c\:044b: x=\"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{
+      RowBox[{"-", "1"}], "-", 
+      RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"Cos", "[", "1", "]"}]}], 
+     RowBox[{
+      RowBox[{"-", "1"}], "-", 
+      RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"1", "-", 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"Cos", "[", "1", "]"}]}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "-", 
+        RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+      FractionBox[
+       RowBox[{"Sin", "[", "1", "]"}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "-", 
+        RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"1", "-", 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"Cos", "[", "1", "]"}]}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "-", 
+        RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+      FractionBox[
+       RowBox[{"Sin", "[", "1", "]"}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "-", 
+        RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"1", "-", 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"Cos", "[", 
+        RowBox[{"1", "-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], "]"}], "+", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"-", "1"}], "+", 
+         RowBox[{"Cos", "[", "1", "]"}]}], 
+        RowBox[{
+         RowBox[{"-", "1"}], "-", 
+         RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+       FractionBox[
+        RowBox[{"Sin", "[", "1", "]"}], 
+        RowBox[{
+         RowBox[{"-", "1"}], "-", 
+         RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}]}], 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{
+            FractionBox["1", 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"1", "-", 
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"1", "-", 
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}], 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{
+            FractionBox["1", 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"1", "-", 
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", "1", "]"}]}], 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}]]}], "-", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"1", "-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], "]"}]}], 
+      ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}]], "-", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"-", "1"}], "+", 
+         RowBox[{"Cos", "[", "1", "]"}]}], 
+        RowBox[{
+         RowBox[{"-", "1"}], "-", 
+         RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+       FractionBox[
+        RowBox[{"Sin", "[", "1", "]"}], 
+        RowBox[{
+         RowBox[{"-", "1"}], "-", 
+         RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}]}], 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{
+            FractionBox["1", 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"1", "-", 
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"1", "-", 
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}], 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{
+            FractionBox["1", 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"1", "-", 
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", "1", "]"}]}], 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}]]}], "-", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"1", "-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], "]"}]}], 
+      ")"}]}]}], "\[InvisibleSpace]", "\<\", y=\"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"Cos", "[", "1", "]"}]}], 
+     RowBox[{
+      RowBox[{"-", "1"}], "-", 
+      RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+    FractionBox[
+     RowBox[{"Sin", "[", "1", "]"}], 
+     RowBox[{
+      RowBox[{"-", "1"}], "-", 
+      RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"1", "-", 
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", "1", "]"}]}], 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+        FractionBox[
+         RowBox[{"Sin", "[", "1", "]"}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}]}], 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"1", "-", 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", "1", "]"}]}], 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+        FractionBox[
+         RowBox[{"Sin", "[", "1", "]"}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}], " ", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"1", "-", 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}], 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"1", "-", 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"Cos", "[", "1", "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "-", 
+          RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}]], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"1", "-", 
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+            RowBox[{
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                FractionBox["1", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", 
+                  RowBox[{"Cos", "[", "1", "]"}]}], 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+            RowBox[{
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                FractionBox["1", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", 
+                  RowBox[{"Cos", "[", "1", "]"}]}], 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], "]"}], "+", 
+         
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{"Sin", "[", "1", "]"}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], ")"}]}], 
+      ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", "1", "]"}]}], 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}]]}], "-", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"1", "-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], "]"}]}], 
+      ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           FractionBox["1", 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+            RowBox[{
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                FractionBox["1", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", 
+                  RowBox[{"Cos", "[", "1", "]"}]}], 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+            RowBox[{
+             RowBox[{"-", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                FractionBox["1", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", 
+                  RowBox[{"Cos", "[", "1", "]"}]}], 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "-", 
+                  RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{"Sin", "[", "1", "]"}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"1", "-", 
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{"Sin", "[", "1", "]"}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], ")"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], ")"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"1", "-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], "]"}]}], 
+      ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", "1", "]"}]}], 
+           RowBox[{
+            RowBox[{"-", "1"}], "-", 
+            RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              RowBox[{"Cos", "[", "1", "]"}]}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+            FractionBox[
+             RowBox[{"Sin", "[", "1", "]"}], 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+           RowBox[{
+            RowBox[{"-", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{
+               FractionBox["1", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"Cos", "[", "1", "]"}]}], 
+                RowBox[{
+                 RowBox[{"-", "1"}], "-", 
+                 RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"1", "-", 
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}]]}], "-", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"1", "-", 
+         FractionBox["1", 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", "1", "]"}]}], 
+          RowBox[{
+           RowBox[{"-", "1"}], "-", 
+           RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}], "+", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]], "-", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}]], "-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             RowBox[{"Cos", "[", "1", "]"}]}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+           FractionBox[
+            RowBox[{"Sin", "[", "1", "]"}], 
+            RowBox[{
+             RowBox[{"-", "1"}], "-", 
+             RowBox[{"Sin", "[", "1", "]"}]}]]}], 
+          RowBox[{
+           RowBox[{"-", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                RowBox[{"Cos", "[", "1", "]"}]}], 
+               RowBox[{
+                RowBox[{"-", "1"}], "-", 
+                RowBox[{"Sin", "[", "1", "]"}]}]]}]]}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"1", "-", 
+             FractionBox["1", 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]], "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               RowBox[{"Cos", "[", "1", "]"}]}], 
+              RowBox[{
+               RowBox[{"-", "1"}], "-", 
+               RowBox[{"Sin", "[", "1", "]"}]}]]}], "]"}]}]]}], "]"}]}], 
+      ")"}]}]}]}],
+  SequenceForm[
+  "\:0420\:0435\:0448\:0435\:043d\:0438\:0435 \:0441\:0438\:0441\:0442\:0435\
+\:043c\:044b: x=", (-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+    1]) + (-1 + 
+     Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+       Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+    1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + Cos[1])/(-1 - 
+     Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+    1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (-1 + 
+     Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+       1]) - (-1 + 
+        Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+          Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+         Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])] + (-1 + 
+       Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1] + 
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) (-1 + 
+       Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+         Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+       E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+      1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+       Cos[1])/(-1 - Sin[
+      1]) + (-1 - Sin[1])^(-1) 
+       Sin[1]) (-E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])^(-1) 
+     Sin[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])/(-
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+        1]) + (-1 + 
+         Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+           Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+          Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])) - Sin[
+    1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+     1]) - (-1 + 
+      Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+        Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+       Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])]) + (
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+        1]) + (-1 + 
+         Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+           Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+          Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])) - (-1 + 
+      Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1] - 
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) (-1 + 
+      Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+        Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+      1])]) + (E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+        Cos[1])/(-1 - Sin[
+       1]) + (-1 - Sin[1])^(-1) 
+        Sin[1]) (-E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])^(-1) 
+      Sin[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])/(-
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+        1]) + (-1 + 
+         Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+           Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+          Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])) - Sin[
+    1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+     1]) - (-1 + 
+      Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+        Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+       Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])]), 
+   ", y=", (-1 + Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1] + 
+   E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) (-1 + 
+     Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+       Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+    1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+    E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + Cos[1])/(-1 - 
+    Sin[1]) + (-1 - Sin[1])^(-1) 
+     Sin[1]) (-E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])^(-1) 
+   Sin[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + 
+   E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+       1]) + (-1 + 
+        Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+          Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+         Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])) (-1 + 
+     Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+       1]) - (-1 + 
+        Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+          Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+         Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])] + (-1 + 
+       Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1] + 
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) (-1 + 
+       Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+         Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+       E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+      1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+       Cos[1])/(-1 - Sin[
+      1]) + (-1 - Sin[1])^(-1) 
+       Sin[1]) (-E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])^(-1) 
+     Sin[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])/(-
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+        1]) + (-1 + 
+         Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+           Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+          Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+         E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+        1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])) - Sin[
+    1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+     1]) - (-1 + 
+      Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+        Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+       Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])]) - (
+    E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+       1]) + (-1 + 
+        Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+          Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+         Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+        E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])) - (-1 + 
+     Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1] - 
+    E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) (-1 + 
+     Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+       Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+     E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+    1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+     1])]) + (E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+       Cos[1])/(-1 - Sin[
+      1]) + (-1 - Sin[1])^(-1) 
+       Sin[1]) (-E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+       1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])^(-1) 
+     Sin[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) (-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[
+         1]) + (-1 + 
+          Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+            Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+          E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+         1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) + (
+          E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+           Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+          E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+         1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+      1]) - (-1 + 
+       Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+         Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+       E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+      1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+       E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+        Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+       E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+      1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])])^(-1) 
+   Sin[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[
+     1]) - (-1 + 
+      Cos[1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])] + (-1 + 
+        Cos[1])/(-1 - Sin[1]) - (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])]) - (
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - (-1 + 
+       Cos[1])/(-1 - Sin[1]) + (-1 - Sin[1])^(-1) Sin[1])/(-
+      E^((-1 - Sin[1])^(-1) + (-1 + Cos[1])/(-1 - Sin[1])) - Sin[
+     1 - (-1 - Sin[1])^(-1) - (-1 + Cos[1])/(-1 - Sin[1])])]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.912536209733078*^9, 3.912536275848404*^9, 3.9125365292945223`*^9, 
+   3.9125365734091797`*^9, {3.9125366046382523`*^9, 3.912536634361871*^9}},
+ CellLabel->
+  "During evaluation of \
+In[105]:=",ExpressionUUID->"a13ecda3-fc18-4e59-913d-4c7cfe148ccb"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 747},
+WindowMargins->{{44, Automatic}, {0, Automatic}},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6a257cfc-19fd-4ba0-9a4b-43519d3b2da3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4034, 111, 517, "Input",ExpressionUUID->"481b9a93-0b5e-4adb-a626-710fb36e137b"],
+Cell[CellGroupData[{
+Cell[4639, 137, 596, 10, 24, "Print",ExpressionUUID->"4a154984-3cb7-46e6-bed7-00e6b5ef0d7c"],
+Cell[5238, 149, 107252, 2883, 3923, "Print",ExpressionUUID->"a13ecda3-fc18-4e59-913d-4c7cfe148ccb"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
